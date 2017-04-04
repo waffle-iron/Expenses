@@ -1,0 +1,21 @@
+<!--{% for expense in expenses_list %}-->
+<!--category: <font color="{{ expense.color }}">{{ expense.category }}</font>, amount: {{ expense.amount }} <br>-->
+<!--{% endfor %}-->
+
+{% if user.is_authenticated %}
+    {% for account in accounts_list%}
+    account name: {{ account.name }}, current_balance: {{ account.current_balance }} <br>
+    {% endfor %}
+{% endif %}
+
+user: {{ user }} <br>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'logout' %}">logout</a> <br>
+{% else %}
+    <a href="{% url 'login' %}">login</a> <a href="{% url 'signup' %}">signup</a><br>
+{% endif %}
+
+<a href="{% url 'new_account' %}">add new account</a> <br>
+<a href="{% url 'new_category' %}">add new category</a> <br>
+<a href="{% url 'new_operation' %}">add new operation</a>
