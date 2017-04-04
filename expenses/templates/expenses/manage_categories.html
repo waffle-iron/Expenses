@@ -1,0 +1,4 @@
+{% for category in categories_list%}
+    <font color="{{ category.color }}">{{ category.name }}</font> <br>
+{% endfor %}
+<a href="{% url 'new_category' %}">add new category</a> <br>

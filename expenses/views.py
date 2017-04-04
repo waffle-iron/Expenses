@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Account
+from .models import Account, Operation
 from .forms import OperationForm, CategoryForm, AccountForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -24,6 +24,11 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
+def manage_operations(request):
+    operations_list = Operation.objects.filter(user=request.user)
+    return render(request, 'expenses/manage_operations.html', {'operations_list': operations_list})
+
+
 def new_operation(request):
     if request.method == "POST":
         form = OperationForm(request.POST)
@@ -40,6 +45,11 @@ def new_operation(request):
         return render(request, 'expenses/new_operation.html', {'form': form})
 
 
+def manage_categories(request):
+    categories_list = Account.objects.filter(user=request.user)
+    return render(request, 'expenses/manage_categories.html', {'accounts_list': categories_list})
+
+
 def new_category(request):
     if request.method == "POST":
         form = CategoryForm(request.POST)
@@ -50,6 +60,11 @@ def new_category(request):
     else:
         form = CategoryForm()
         return render(request, 'expenses/new_category.html', {'form': form})
+
+
+def manage_accounts(request):
+    accounts_list = Account.objects.filter(user=request.user)
+    return render(request, 'expenses/manage_accounts.html', {'accounts_list': accounts_list})
 
 
 def new_account(request):

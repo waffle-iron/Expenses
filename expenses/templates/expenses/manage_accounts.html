@@ -1,0 +1,4 @@
+{% for account in accounts_list%}
+    account name: {{ account.name }}, current_balance: {{ account.current_balance }} <br>
+{% endfor %}
+<a href="{% url 'new_account' %}">add new account</a> <br>

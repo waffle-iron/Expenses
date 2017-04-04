@@ -1,0 +1,4 @@
+{% for operation in operations_list %}
+    category: <font color="{{ operation.color }}">{{ operation.category }}</font>, amount: {{ operation.amount }} <br>
+{% endfor %}
+<a href="{% url 'new_operation' %}">add new operation</a>
