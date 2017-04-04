@@ -21,8 +21,8 @@ from expenses import views as expense_views
 
 urlpatterns = [
     url(r'^expenses/', include('expenses.urls')),
-    url(r'^signup/$', expense_views.signup, name='signup'),
-    url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, {'next_page': '/expenses'}, name='logout'),
+    url(r'^sign_up/$', expense_views.sign_up, name='sign_up'),
+    url(r'^log_in/$', auth_views.login, name='log_in'),
+    url(r'^log_out/$', auth_views.logout, {'next_page': '/expenses'}, name='log_out'),
     url(r'^admin/', admin.site.urls),
 ]

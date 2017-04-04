@@ -1,7 +1,7 @@
 {% if user.is_authenticated %}
-    user: {{ user }} <a href="{% url 'logout' %}">logout</a> <br>
+    user: {{ user }} <a href="{% url 'log_out' %}">log out</a> <br>
 {% else %}
-    <a href="{% url 'login' %}">login</a> <a href="{% url 'signup' %}">signup</a><br>
+    <a href="{% url 'log_in' %}">log in</a> <a href="{% url 'sign_up' %}">sign up</a><br>
 {% endif %}
 
 {% if user.is_authenticated %}

@@ -9,7 +9,7 @@ def index(request):
     return render(request, 'expenses/index.html', {'user': request.user})
 
 
-def signup(request):
+def sign_up(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
